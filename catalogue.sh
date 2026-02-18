@@ -4,6 +4,7 @@ source ./common.sh
 appname=catalogue
 pwd=$PWD
 verify_user
+system_user
 app_setup
 nodejs_setup
 system_desetup

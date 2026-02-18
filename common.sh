@@ -61,7 +61,7 @@ system_desetup(){
 
 app_start(){
     systemctl start $appname &>> $filename
-    validate $? "start shipping"
+    validate $? "start $appname"
 }
 
 system_user(){

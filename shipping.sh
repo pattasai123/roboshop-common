@@ -7,12 +7,7 @@ verify_user
 
 dnf install maven -y  &>> $filename
 validate $? "installing maven"
-id roboshop &>> $filename
-if [ $? -ne 0 ]; then
-    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>> $filename
-else
-    echo -e "$r skipping already exist"
-fi
+system_user
 
 app_setup
 cd /app

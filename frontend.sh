@@ -2,7 +2,6 @@
 
 source ./common.sh
 pwd=$PWD 
-appname=nginx
 verify_user
 
 
@@ -21,7 +20,8 @@ dnf install nginx -y &>> $filename
 validate $? "installing nginx"
 systemctl enable nginx &>> $filename
 validate $? "enable nginx"
-app_start
+systemctl start nginx &>> $filename
+validate $? "start nginx"
 rm -rf /usr/share/nginx/html/* &>> $filename
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip &>> $filename
 cd /usr/share/nginx/html &>> $filename
@@ -29,4 +29,5 @@ unzip /tmp/frontend.zip &>> $filename
 
 cp $pwd/nginx.conf /etc/nginx/nginx.conf
 
-app_restart
+systemctl restart nginx &>> $filename
+validate $? "restart nginx"

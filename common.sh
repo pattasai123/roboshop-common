@@ -55,8 +55,8 @@ system_desetup(){
     systemctl daemon-reload &>> $filename
     validate $? "daemon-reload"
 
-    systemctl enable catalogue &>> $filename
-    validate $? "enable catalogue"
+    systemctl enable $appname &>> $filename
+    validate $? "enable $appname"
 }
 
 app_start(){

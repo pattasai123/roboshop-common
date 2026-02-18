@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source ./common.sh
-appname=catalouge
+appname=catalogue
 pwd=$PWD
 verify_user
 app_setup
